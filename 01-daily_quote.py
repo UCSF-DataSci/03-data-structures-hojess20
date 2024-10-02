@@ -16,14 +16,18 @@ from datetime import date
 
 
 quotes = [
-    # Create a list of quotes here
+    "The only way to do great work is to love what you do. - Steve Jobs",
+    "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
+    "Don’t watch the clock; do what it does. Keep going. - Sam Levenson",
+    "Believe you can and you're halfway there. - Theodore Roosevelt",
+    "You miss 100% of the shots you don’t take. - Wayne Gretzky"
 ]
 
 def get_quote_of_the_day(quotes):
     todays_quote = None
-
-    # Your code here
-    
+    today_date = date.today().toordinal()  # change date to ordinal number
+    random.seed(today_date) # initializes random number generator to specific value
+    todays_quote = random.choice(quotes)
     return todays_quote
 
 if __name__ == "__main__":

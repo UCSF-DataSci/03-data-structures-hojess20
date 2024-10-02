@@ -20,10 +20,17 @@ Hints:
 import sys
 
 def word_frequency(text):
-    frequencies = {} # Dictionary to store word frequencies
-
-    # Your code here
+    frequencies = {}  
+    words = text.lower().split()  
+    for word in words:
+        word = word.strip(".,!?:;\"'-_()[]{}<>") # removing punctuation from the word
+        
+        if word in frequencies:          # update frequency of the word in dictionary
+            frequencies[word] += 1
+        else:
+            frequencies[word] = 1
     
+    frequencies = dict(sorted(frequencies.items())[:20])  # sort dictionary alphabetically and return first 20 items
     return frequencies
 
 # Scaffold for opening a file and running word_frequency() on the contents
